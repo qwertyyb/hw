@@ -14,6 +14,7 @@
 		45471C52285B788800CA4884 /* hwTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45471C51285B788800CA4884 /* hwTests.swift */; };
 		45471C5C285B788800CA4884 /* hwUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45471C5B285B788800CA4884 /* hwUITests.swift */; };
 		45471C5E285B788800CA4884 /* hwUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45471C5D285B788800CA4884 /* hwUITestsLaunchTests.swift */; };
+		45471C6B285CDF9200CA4884 /* MaskWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45471C6A285CDF9200CA4884 /* MaskWindow.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +46,7 @@
 		45471C57285B788800CA4884 /* hwUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = hwUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		45471C5B285B788800CA4884 /* hwUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hwUITests.swift; sourceTree = "<group>"; };
 		45471C5D285B788800CA4884 /* hwUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hwUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		45471C6A285CDF9200CA4884 /* MaskWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaskWindow.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +102,7 @@
 				45471C43285B788800CA4884 /* Assets.xcassets */,
 				45471C45285B788800CA4884 /* Main.storyboard */,
 				45471C48285B788800CA4884 /* hw.entitlements */,
+				45471C6A285CDF9200CA4884 /* MaskWindow.swift */,
 			);
 			path = hw;
 			sourceTree = "<group>";
@@ -251,6 +254,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				45471C6B285CDF9200CA4884 /* MaskWindow.swift in Sources */,
 				45471C42285B788600CA4884 /* ViewController.swift in Sources */,
 				45471C40285B788600CA4884 /* AppDelegate.swift in Sources */,
 			);
