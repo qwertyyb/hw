@@ -8,13 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		45471C40285B788600CA4884 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45471C3F285B788600CA4884 /* AppDelegate.swift */; };
-		45471C42285B788600CA4884 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45471C41285B788600CA4884 /* ViewController.swift */; };
 		45471C44285B788800CA4884 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45471C43285B788800CA4884 /* Assets.xcassets */; };
 		45471C47285B788800CA4884 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45471C45285B788800CA4884 /* Main.storyboard */; };
 		45471C52285B788800CA4884 /* hwTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45471C51285B788800CA4884 /* hwTests.swift */; };
 		45471C5C285B788800CA4884 /* hwUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45471C5B285B788800CA4884 /* hwUITests.swift */; };
 		45471C5E285B788800CA4884 /* hwUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45471C5D285B788800CA4884 /* hwUITestsLaunchTests.swift */; };
 		45471C6B285CDF9200CA4884 /* MaskWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45471C6A285CDF9200CA4884 /* MaskWindow.swift */; };
+		45471C6D285EB76800CA4884 /* Accessibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45471C6C285EB76800CA4884 /* Accessibility.swift */; };
+		45471C6F285EBC6800CA4884 /* WindowHightlight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45471C6E285EBC6800CA4884 /* WindowHightlight.swift */; };
+		45471C71285ED06D00CA4884 /* StatusButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45471C70285ED06D00CA4884 /* StatusButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,7 +39,6 @@
 /* Begin PBXFileReference section */
 		45471C3C285B788600CA4884 /* hw.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = hw.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		45471C3F285B788600CA4884 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		45471C41285B788600CA4884 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		45471C43285B788800CA4884 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		45471C46285B788800CA4884 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		45471C48285B788800CA4884 /* hw.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = hw.entitlements; sourceTree = "<group>"; };
@@ -47,6 +48,10 @@
 		45471C5B285B788800CA4884 /* hwUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hwUITests.swift; sourceTree = "<group>"; };
 		45471C5D285B788800CA4884 /* hwUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hwUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		45471C6A285CDF9200CA4884 /* MaskWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaskWindow.swift; sourceTree = "<group>"; };
+		45471C6C285EB76800CA4884 /* Accessibility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Accessibility.swift; sourceTree = "<group>"; };
+		45471C6E285EBC6800CA4884 /* WindowHightlight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowHightlight.swift; sourceTree = "<group>"; };
+		45471C70285ED06D00CA4884 /* StatusButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusButton.swift; sourceTree = "<group>"; };
+		45471C72285EDB5B00CA4884 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,12 +102,15 @@
 		45471C3E285B788600CA4884 /* hw */ = {
 			isa = PBXGroup;
 			children = (
+				45471C72285EDB5B00CA4884 /* Info.plist */,
 				45471C3F285B788600CA4884 /* AppDelegate.swift */,
-				45471C41285B788600CA4884 /* ViewController.swift */,
 				45471C43285B788800CA4884 /* Assets.xcassets */,
 				45471C45285B788800CA4884 /* Main.storyboard */,
 				45471C48285B788800CA4884 /* hw.entitlements */,
 				45471C6A285CDF9200CA4884 /* MaskWindow.swift */,
+				45471C6C285EB76800CA4884 /* Accessibility.swift */,
+				45471C6E285EBC6800CA4884 /* WindowHightlight.swift */,
+				45471C70285ED06D00CA4884 /* StatusButton.swift */,
 			);
 			path = hw;
 			sourceTree = "<group>";
@@ -255,8 +263,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				45471C6B285CDF9200CA4884 /* MaskWindow.swift in Sources */,
-				45471C42285B788600CA4884 /* ViewController.swift in Sources */,
+				45471C71285ED06D00CA4884 /* StatusButton.swift in Sources */,
+				45471C6D285EB76800CA4884 /* Accessibility.swift in Sources */,
 				45471C40285B788600CA4884 /* AppDelegate.swift in Sources */,
+				45471C6F285EBC6800CA4884 /* WindowHightlight.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -429,6 +439,9 @@
 				DEVELOPMENT_TEAM = T68XK6867P;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = hw/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "";
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_NSMainStoryboardFile = Main;
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
@@ -456,6 +469,9 @@
 				DEVELOPMENT_TEAM = T68XK6867P;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = hw/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "";
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_NSMainStoryboardFile = Main;
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;

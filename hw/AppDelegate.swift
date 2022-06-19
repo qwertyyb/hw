@@ -9,21 +9,34 @@ import Cocoa
 
 @main
 class AppDelegate: NSObject, NSApplicationDelegate {
-
-    var maskWindow: MaskWindow?
+    
+    var windowHighlight: WindowHighlight?
+    var statusButton: StatusButton?
+    
+    func toGrant() {
+        Accessibility.requestPermission {
+            self.windowHighlight = WindowHighlight.shared
+            self.statusButton = StatusButton.shared
+        }
+    }
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Insert code here to initialize your application
-        maskWindow = MaskWindow()
-        Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { timer in
-            let options = CGWindowListOption(arrayLiteral: .optionOnScreenOnly, .excludeDesktopElements, .optionIncludingWindow)
-            let windows = CGWindowListCopyWindowInfo(.optionOnScreenOnly, kCGNullWindowID)! as NSArray
-            let nws = windows.filter({ win in
-                return (win as! NSDictionary)[kCGWindowLayer] as? Int == 0
-            })
-            print(nws.first)
-            if let num = ((nws.first as! NSDictionary)[kCGWindowNumber] as? Int), num != self.maskWindow?.windowNumber {
-                self.maskWindow?.order(.below, relativeTo: num)
+        if Accessibility.hasPermission {
+            windowHighlight = WindowHighlight.shared
+            statusButton = StatusButton.shared
+        } else {
+            let alert = NSAlert()
+            alert.messageText = "需要辅助功能权限才能正常使用此应用"
+            alert.addButton(withTitle: "去授权")
+            alert.addButton(withTitle: "退出应用")
+            NSApp.activate(ignoringOtherApps: true)
+            alert.buttons[1].refusesFirstResponder = true
+            let result = alert.runModal()
+            if result == .alertFirstButtonReturn {
+                toGrant()
+            } else {
+                NSApp.terminate(self)
             }
         }
     }

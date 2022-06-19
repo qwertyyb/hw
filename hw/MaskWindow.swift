@@ -38,6 +38,12 @@ class MaskWindow: NSWindow {
         hasShadow = false
         ignoresMouseEvents = true
         isReleasedWhenClosed = false
+        level = NSWindow.Level.normal
+        // 不显示在mission control中
+        collectionBehavior = .transient
+        isExcludedFromWindowsMenu = true
+        // alt-tab 使用subrole来过滤窗口，此处需要设置subrole为nil
+        self.setAccessibilitySubrole(nil)
         self.setFrame(NSScreen.main!.frame, display: true)
         self.orderFront(nil)
     }
