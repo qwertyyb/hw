@@ -61,26 +61,17 @@ jobs:
     steps:
     - uses: actions/checkout@v1
 
-    - name: switch master branch
-      run: git checkout master
+    - name: switch main branch
+      run: git checkout main
 
     - uses: actions/download-artifact@v1
       with:
         name: appcast
 
-    - name: move appcast.xml
+    - name: gh-pages branch publish
       run: |
-        mv appcast/appcast.xml ./appcast.xml
-        rm -rf appcast
-
-    - name: Commit files
-      run: |
-        git config --local user.email "action@github.com"
-        git config --local user.name "GitHub Action"
-        git add .
-        git commit -m "update version"
-    - name: push changes
-      uses: ad-m/github-push-action@master
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-
+        npm install gh-pages
+        git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
+        npx gh-pages -d appcast -u "github-actions-bot <support+actions@github.com>"
+      env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
