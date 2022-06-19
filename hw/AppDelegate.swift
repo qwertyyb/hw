@@ -6,12 +6,14 @@
 //
 
 import Cocoa
+import Sparkle
 
 @main
 class AppDelegate: NSObject, NSApplicationDelegate {
     
     var windowHighlight: WindowHighlight?
     var statusButton: StatusButton?
+    @IBOutlet weak var updater: SPUStandardUpdaterController!
     
     func toGrant() {
         Accessibility.requestPermission {

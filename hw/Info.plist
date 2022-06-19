@@ -8,5 +8,9 @@
 	<true/>
 	<key>NSSupportsSuddenTermination</key>
 	<false/>
+	<key>SUFeedURL</key>
+	<string>https://qwertyyb.github.io/hw/appcast.xml</string>
+	<key>SUPublicEDKey</key>
+	<string>VDYkpVjRCjjpR6g8bg6N2rbDyyCRPS98Rbr3ehISwJc=</string>
 </dict>
 </plist>

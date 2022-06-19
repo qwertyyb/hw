@@ -7,6 +7,7 @@
 
 import Foundation
 import AppKit
+import Sparkle
 
 class StatusButton {
     private let statusItem: NSStatusItem
@@ -30,6 +31,8 @@ class StatusButton {
         menu.minimumWidth = 120
         var item = menu.addItem(withTitle: "禁用", action: #selector(StatusButton.toggle), keyEquivalent: "")
         item.target = self
+        item = menu.addItem(withTitle: "检查更新", action: #selector(SPUStandardUpdaterController.checkForUpdates(_:)), keyEquivalent: "")
+        item.target = (NSApp.delegate as! AppDelegate).updater
         item = menu.addItem(withTitle: "退出", action: #selector(StatusButton.quitApp), keyEquivalent: "q")
         item.target = self
         statusItem.menu = menu

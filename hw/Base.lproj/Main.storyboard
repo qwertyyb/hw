@@ -673,9 +673,14 @@
                         <outlet property="delegate" destination="Voe-Tx-rLC" id="PrD-fu-P6m"/>
                     </connections>
                 </application>
-                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="hw" customModuleProvider="target"/>
+                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="hw" customModuleProvider="target">
+                    <connections>
+                        <outlet property="updater" destination="atc-ou-vXW" id="Gdt-uR-tne"/>
+                    </connections>
+                </customObject>
                 <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <customObject id="atc-ou-vXW" customClass="SPUStandardUpdaterController"/>
             </objects>
             <point key="canvasLocation" x="75" y="0.0"/>
         </scene>
