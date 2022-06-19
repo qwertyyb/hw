@@ -47,13 +47,7 @@ jobs:
         ditto -c -k --sequesterRsrc --keepParent apps/hw.app apps/hw.zip
         # rm -r ~/Library/Caches/Sparkle_generate_appcast/*
 
-    - name: upload release file
-      uses: AButler/upload-release-assets@v1.0
-      with:
-        files: 'apps/dmg/hw.dmg'
-        repo-token: ${{ secrets.GITHUB_TOKEN }}
-
-    - uses: actions/upload-artifact@v1
+    - uses: actions/upload-artifact@v2
       with:
         name: appcast
-        path: ./apps/appcast.xml
+        path: ./apps/
