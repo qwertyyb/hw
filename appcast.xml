@@ -3,12 +3,12 @@
     <channel>
         <title>hw</title>
         <item>
-            <title>v0.0.3</title>
-            <pubDate>Sun, 19 Jun 2022 13:23:03 +0000</pubDate>
-            <sparkle:version>20220619132126</sparkle:version>
-            <sparkle:shortVersionString>v0.0.3</sparkle:shortVersionString>
+            <title>v0.1.0</title>
+            <pubDate>Sun, 19 Jun 2022 15:20:51 +0000</pubDate>
+            <sparkle:version>20220619151853</sparkle:version>
+            <sparkle:shortVersionString>v0.1.0</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>12.1</sparkle:minimumSystemVersion>
-            <enclosure url="https://github.com/qwertyyb/hw/releases/latest/download/hw.dmg" length="1320873" type="application/octet-stream" sparkle:edSignature="3otG0zkNFtyyDkIm3h0Vf1Ner+y8Iza0dHuOl32fz3E7aX05tk5ZldC1OM+0Y6lDyvWRDsb0CVS55VeGxtSSCg=="/>
+            <enclosure url="https://github.com/qwertyyb/hw/releases/latest/download/hw.dmg" length="1327718" type="application/octet-stream" sparkle:edSignature="SsrJLZfM5j4Y+9/IMtxemvgBAm/pGDSFE4ky+knaz/2U/1SPcPDih6plDfis+9v11hsRMS9g21w+O6gdDWNaDA=="/>
         </item>
     </channel>
 </rss>
