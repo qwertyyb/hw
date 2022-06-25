@@ -19,6 +19,10 @@ class StatusButton {
         WindowHighlight.shared.toggleDisable();
         statusItem.menu?.item(at: 0)?.title = WindowHighlight.shared.disabled ? "启用" : "禁用"
     }
+    @objc func openAbout() {
+        NSApp.activate(ignoringOtherApps: true)
+        NSApp.orderFrontStandardAboutPanel()
+    }
 
     private init() {
         statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
@@ -33,6 +37,8 @@ class StatusButton {
         item.target = self
         item = menu.addItem(withTitle: "检查更新", action: #selector(SPUStandardUpdaterController.checkForUpdates(_:)), keyEquivalent: "")
         item.target = (NSApp.delegate as! AppDelegate).updater
+        item = menu.addItem(withTitle: "关于HW", action: #selector(StatusButton.openAbout), keyEquivalent: "")
+        item.target = self
         item = menu.addItem(withTitle: "退出", action: #selector(StatusButton.quitApp), keyEquivalent: "q")
         item.target = self
         statusItem.menu = menu
