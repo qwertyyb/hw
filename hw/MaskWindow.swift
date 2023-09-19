@@ -14,9 +14,10 @@ class MaskWindow: NSWindow {
             VStack {
             }
             .frame(width: NSScreen.main!.frame.width, height: NSScreen.main!.frame.height, alignment: .center)
-            .background(Color.black.opacity(0.2))
+            .background(Color.black)
             .clipped()
             .cornerRadius(0)
+            .transition(.opacity)
         }
     }
 
@@ -27,6 +28,7 @@ class MaskWindow: NSWindow {
     }
 
     private let hostingView = NSHostingView(rootView: MaskView())
+
     override var acceptsFirstResponder: Bool {
        return false
     }
@@ -46,7 +48,31 @@ class MaskWindow: NSWindow {
         self.setAccessibilitySubrole(nil)
         self.setFrame(NSScreen.main!.frame, display: true)
         self.orderFront(nil)
+        self.alphaValue = 0
+        self.animationBehavior = .none
     }
+    
+    func fadeIn(_ frontMostWinNo: Int) {
+        NSLog("fadeIn")
+        self.order(.below, relativeTo: frontMostWinNo)
+        NSAnimationContext.runAnimationGroup({ (context) -> Void in
+            context.duration = 0.6
+            context.allowsImplicitAnimation = true
+            context.timingFunction = .init(name: .linear)
+            self.animator().alphaValue = 0.3
+            }, completionHandler: nil)
+    }
+    
+    func fadeOut() {
+        NSLog("fadeOut")
+        NSAnimationContext.runAnimationGroup({ (context) -> Void in
+            context.duration = 0.6
+            context.allowsImplicitAnimation = true
+            context.timingFunction = .init(name: .linear)
+            self.animator().alphaValue = 0
+        }, completionHandler: nil)
+    }
+    
     override init(
         contentRect: NSRect,
         styleMask style: NSWindow.StyleMask,

@@ -12,8 +12,20 @@ import Cocoa
 class WindowHighlight {
     private var focusedAppObserver: Any?
     private var focusedWindowChangedObserver: AXObserver?
-    let maskWindow: MaskWindow = MaskWindow()
+    /**
+     * 使用两个MaskWindow以达到平滑过渡的效果
+     * 基本原理: 每次有新的窗口移动到最前方，原有的遮罩窗口淡出(窗口A)，另一个遮罩容器淡入(窗口B)
+     * 这样原来的高亮窗口，会因窗口B的淡入效果而有一个亮度从高到低的平滑过渡
+     * 以此两个弹窗的交换淡入和淡出达到平滑过渡的效果
+     */
+    let maskWindows: [MaskWindow] = [MaskWindow(), MaskWindow()]
+    var usingWindowIndex = 0
     var disabled: Bool = false
+    var frontMostWin: NSDictionary?
+    
+    var maskWindow: MaskWindow {
+        get { maskWindows[usingWindowIndex] }
+    }
     
     private func removeFocusedAppObserver() {
         guard let focusedAppObserver = focusedAppObserver else {
@@ -65,6 +77,8 @@ class WindowHighlight {
         }
         if self.disabled {
             stopObserver()
+            self.maskWindow.fadeOut()
+            self.frontMostWin = nil
         } else {
             startObserver()
         }
@@ -78,8 +92,11 @@ class WindowHighlight {
         })
         if let frontMostWin = nws.first as? NSDictionary,
             let frontMostWinNo = frontMostWin[kCGWindowNumber] as? Int,
-           frontMostWinNo != self.maskWindow.windowNumber {
-            self.maskWindow.order(.below, relativeTo: frontMostWinNo)
+            self.frontMostWin != frontMostWin {
+            self.frontMostWin = frontMostWin
+            self.maskWindow.fadeOut()
+            self.usingWindowIndex = (self.usingWindowIndex + 1) % self.maskWindows.count
+            self.maskWindow.fadeIn(frontMostWinNo)
         }
     }
     

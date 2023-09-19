@@ -38,6 +38,7 @@ jobs:
         sparkle_key: ${{ secrets.sparkle_key }}
         apple_id: ${{ secrets.APPLEID }}
         apple_id_password: ${{ secrets.APPLE_PASSWORD }}
+        team_id: ${{ secrets.TEAM_ID }}
       run: ./scripts/build.sh
     - name: generate hw.zip
       run: |
