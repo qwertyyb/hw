@@ -18,15 +18,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func toGrant() {
         Accessibility.requestPermission {
             self.windowHighlight = WindowHighlight.shared
-            self.statusButton = StatusButton.shared
         }
     }
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Insert code here to initialize your application
+        statusButton = StatusButton.shared
         if Accessibility.hasPermission {
             windowHighlight = WindowHighlight.shared
-            statusButton = StatusButton.shared
         } else {
             let alert = NSAlert()
             alert.messageText = "需要辅助功能权限才能正常使用此应用"
